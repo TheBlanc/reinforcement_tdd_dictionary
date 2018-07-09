@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './dictionary.rb'
+require 'pry'
 
 class TestDictionary < MiniTest::Test
   def setup
@@ -26,11 +27,13 @@ class TestDictionary < MiniTest::Test
   def test_check_if_keyword_exists
     # refute asserts falsy, !assert
     refute @d.include?('fish')
+
   end
 
   def test_check_if_keyword_exists_after_add
     refute @d.include?('fish') # if the method is empty, this test passes
     @d.add('fish')
+
     assert @d.include?('fish') # confirms that it actually checks
     refute @d.include?('bird') # confirms not always returning true after add
   end
